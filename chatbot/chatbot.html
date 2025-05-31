@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Gemini PDF</title>
+    <link rel="icon" href="../assets/img/gemini.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="banner">
+            <img src="../assets/img/banner.jpg" alt="Banner">
+        </div>
+
+        <h1>Chat Materi dengan Gemini</h1>
+        <form id="chat-form">
+            <div class="prompt-box">
+                <label>
+                    <input name="prompt" id="prompt-input" placeholder="Tanyakan materi di sini..." type="text">
+                </label>
+                <button type="submit">Go</button>
+            </div>
+        </form>
+
+        <div class="output" id="output">(Jawaban akan muncul di sini)</div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

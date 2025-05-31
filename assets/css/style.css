@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f9f9f9;
+  --accent-color: #076EFF;
+  color: #202124;
+}
+
+main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 720px; /* Dikurangi dari 960px jadi 720px */
+  margin: 0 auto;
+  padding: 16px; /* Padding dikurangi dari 24px jadi 16px */
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* sedikit dikurangi */
+  margin: 0 auto 20px auto; /* margin bawah dikurangi */
+  font-size: 24px; /* dari 28px ke 24px */
+}
+
+h1::before {
+  content: '';
+  display: inline-block;
+  background: url('../img/gemini.svg');
+  width: 36px; /* dikurangi dari 40px */
+  height: 36px;
+  background-size: cover;
+}
+
+.image-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* dikurangi dari 12px */
+  margin-top: 20px; /* dikurangi dari 24px */
+}
+
+.image-choice {
+  flex: 1 1 30%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  min-width: 90px; /* dikurangi dari 100px */
+}
+
+.image-choice:has(:checked)::before {
+  pointer-events: none;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1;
+  color: white;
+  content: '✓';
+  background-color: var(--accent-color);
+  width: 14px; /* dikurangi */
+  height: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  border-radius: 100px;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.image-choice:has(:checked)::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 2px var(--accent-color) inset,
+    0 0 0 4px #fff inset;
+}
+
+.image-choice img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-choice input {
+  opacity: 0;
+  position: absolute;
+}
+
+.prompt-box {
+  margin: 20px 0; /* dikurangi */
+  width: 100%;
+  display: flex;
+  gap: 10px; /* dikurangi */
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+label {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px; /* dikurangi */
+  font-size: 12px;
+  min-width: 200px; /* dikurangi */
+}
+
+input,
+button {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 14px; /* dikurangi padding */
+  font-family: unset;
+  font-size: 14px; /* dari 16px ke 14px */
+  box-sizing: border-box;
+}
+
+button {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -4px;
+}
+
+button:hover {
+  opacity: 0.95;
+}
+
+.output p {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+}
+
+.output {
+  font-size: 15px;         /* dikurangi dari 17px */
+  line-height: 1.25;       /* sedikit dikurangi */
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-top: 12px;        /* dikurangi */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .prompt-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .prompt-box button {
+    width: 100%;
+  }
+
+  .image-picker {
+    flex-direction: column;
+  }
+
+  .image-choice {
+    width: 100%;
+  }
+
+  main {
+    padding: 12px; /* dikurangi */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 18px; /* dikurangi */
+  }
+
+  h1::before {
+    width: 28px;
+    height: 28px;
+  }
+
+  input,
+  button {
+    font-size: 13px; /* dikurangi */
+    padding: 8px 12px;
+  }
+
+  .output {
+    font-size: 13px; /* dikurangi */
+  }
+}
+
+.banner {
+  width: 100%;
+  max-width: 720px;
+  height: 120px; /* banner tetap pendek */
+  border-radius: 12px;
+  margin: 0 auto 16px auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
