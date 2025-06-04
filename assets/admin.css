@@ -1,0 +1,133 @@
+/* File: ../assets/css/admin.css */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 24px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Message Area */
+.message {
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+/* Form */
+form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 16px;
+}
+
+form input[type="text"],
+form input[type="file"],
+form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+/* Button */
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Cancel Link */
+a.cancel-link {
+    display: inline-block;
+    text-align: center;
+    margin-top: 12px;
+    text-decoration: none;
+    color: #e74c3c;
+    font-weight: 500;
+    width: 100%;
+}
+
+a.cancel-link:hover {
+    text-decoration: underline;
+}
+
+/* Success & Error Styling */
+.message span[style*='color:green'] {
+    background-color: #eafaf1;
+    border-left: 5px solid #2ecc71;
+    padding: 10px;
+    border-radius: 6px;
+    display: block;
+}
+
+.message span[style*='color:red'] {
+    background-color: #fdecea;
+    border-left: 5px solid #e74c3c;
+    padding: 10px;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    button, a.cancel-link {
+        font-size: 14px;
+    }
+
+    form input, form textarea {
+        font-size: 14px;
+    }
+}

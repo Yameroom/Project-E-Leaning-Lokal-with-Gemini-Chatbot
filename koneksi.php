@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "";
-$db   = "e_learning_local";
+$pass = "123456";
+$db   = "db-learning";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 
