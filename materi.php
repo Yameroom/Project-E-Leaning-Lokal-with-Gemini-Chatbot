@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+if (!isset($_SESSION['admin_logged_in'])) {
+    header('Location: admin/admin_login.php');
+    exit();
+}
+
 include 'koneksi.php';
 
 // Ambil semua data materi

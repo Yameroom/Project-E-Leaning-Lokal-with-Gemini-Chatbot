@@ -1,8 +1,9 @@
 <?php
-include 'koneksi.php';
 session_start();
+include '../koneksi.php';
+
 if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: admin_login.php");
+    header("Location: ../login.php");
     exit;
 }
 
@@ -11,11 +12,15 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-$id = $_GET['id'];
+$id = (int)$_GET['id']; // casting ke int supaya aman
 
 // Ambil data materi dulu untuk mengetahui nama file
-$query = "SELECT nama_file FROM materi WHERE id = $id";
+$query = "SELECT file FROM materi WHERE id = $id"; // pastikan kolom file di DB namanya 'file'
 $result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die("Query error: " . mysqli_error($conn));
+}
 
 if (mysqli_num_rows($result) == 0) {
     echo "Materi tidak ditemukan!";
@@ -23,14 +28,14 @@ if (mysqli_num_rows($result) == 0) {
 }
 
 $data = mysqli_fetch_assoc($result);
-$nama_file = $data['nama_file'];
+$nama_file = $data['file'];
 
 // Hapus data materi dari database
 $sql = "DELETE FROM materi WHERE id = $id";
 
-if ($conn->query($sql) === TRUE) {
+if (mysqli_query($conn, $sql)) {
     // Hapus file fisik di folder materi/
-    $file_path = "materi/" . $nama_file;
+    $file_path = "../materi/" . $nama_file; // pastikan pathnya benar
     if (file_exists($file_path)) {
         unlink($file_path);
     }
@@ -38,6 +43,6 @@ if ($conn->query($sql) === TRUE) {
     header("Location: admin_dashboard.php?msg=hapus_sukses");
     exit;
 } else {
-    echo "Gagal menghapus materi: " . $conn->error;
+    echo "Gagal menghapus materi: " . mysqli_error($conn);
 }
 ?>
